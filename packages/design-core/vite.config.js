@@ -42,6 +42,12 @@ const config = {
       '/platform-center/api': {
         target: origin,
         changeOrigin: true
+      },
+      '/comfyui': {
+        target: 'http://localhost:8188',
+        changeOrigin: true,
+        ws: true,
+        rewrite: (path) => path.replace(/^\/comfyui/, '')
       }
     }
   },
@@ -185,6 +191,7 @@ const devAlias = {
   '@opentiny/tiny-engine-utils': path.resolve(__dirname, '../utils/src/index.js'),
   '@opentiny/tiny-engine-webcomponent-core': path.resolve(__dirname, '../webcomponent/src/lib.js'),
   '@opentiny/tiny-engine-i18n-host': path.resolve(__dirname, '../i18n/src/lib.js'),
+  '@opentiny/tiny-engine-plugin-workflow': path.resolve(__dirname, '../plugins/workflow/index.js'),
   '@opentiny/tiny-engine-builtin-component': path.resolve(__dirname, '../builtinComponent/index.js')
 }
 
