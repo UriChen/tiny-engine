@@ -6,6 +6,7 @@
   </slot>
 
   <tiny-dialog-box
+    v-if="dialogShouldInitialize"
     :visible="state.isVisible"
     title="变量绑定"
     width="1200px"
@@ -289,6 +290,10 @@ export default {
     modelValue: {
       type: [String, Number, Boolean, Array, Object, Date],
       default: ''
+    },
+    lazyLoad: {
+      type: Boolean,
+      default: true
     }
   },
   setup(props, { emit }) {
@@ -663,24 +668,26 @@ export default {
       return ''
     }
 
+    const dialogShouldInitialize = ref(!props.lazyLoad)
     const open = async () => {
-      resetWorkflowVariableState()
+      dialogShouldInitialize.value = true
 
+      resetWorkflowVariableState()
       if (bindKey.value.startsWith(WORKFLOW_STATE_KEY)) {
         await findWorkflows()
         state.isVisible = true
         bindType.value = 'workflow'
         setWorkflowVariableStateByBindKey(bindKey.value, workflowState.workflows)
-      } else {
-        findWorkflows()
-        state.isVisible = true
-        state.variableName = bindKey.value
-        state.variable = getInitVariable()
-        state.variables = getSchema()?.state || {}
-        state.bindPrefix = CONSTANTS.STATE
-        state.variableContent = state.variables[bindKey.value]
+        return
       }
+      findWorkflows()
 
+      state.isVisible = true
+      state.variableName = bindKey.value
+      state.variable = getInitVariable()
+      state.variables = getSchema()?.state || {}
+      state.bindPrefix = CONSTANTS.STATE
+      state.variableContent = state.variables[bindKey.value]
       nextTick(() => window.dispatchEvent(new Event('resize')))
     }
 
@@ -759,6 +766,7 @@ export default {
       remove,
       cancel,
       confirm,
+      dialogShouldInitialize,
       open,
       selectItem,
       state,
