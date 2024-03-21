@@ -170,7 +170,6 @@ import { theme } from '@opentiny/tiny-engine-controller/adapter'
 import { string2Ast, ast2String } from '@opentiny/tiny-engine-controller/js/ast'
 import { iconYes, iconHelpQuery } from '@opentiny/vue-icon'
 
-
 const dialogVisible = ref(false)
 
 export const open = () => {
@@ -215,15 +214,13 @@ export default {
     }
   },
   setup(props) {
-    
     const bindType = ref('normal')
     const { PLUGIN_NAME, getPluginApi, activePlugin } = useLayout()
     const { pageState } = useCanvas()
     const { getMethodNameList, getMethods, saveMethod, highlightMethod } = getPluginApi(PLUGIN_NAME.PageController)
 
-    const { workflowState, findWorkflows } = useWorkflow
-    const { workflowMethodState, setWorkflow, setWorkflowMethod, resetWorkflowMethodState } =
-      useWorkflowMethod
+    const { workflowState, findWorkflows } = useWorkflow()
+    const { workflowMethodState, setWorkflow, setWorkflowMethod, resetWorkflowMethodState } = useWorkflowMethod()
     const editor = ref(null)
 
     const state = reactive({
