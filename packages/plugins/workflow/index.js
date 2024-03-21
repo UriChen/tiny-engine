@@ -9,22 +9,14 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { ComfyuiIcon } from '@opentiny/tiny-engine-common'
 
-import Icon from './src/Icon.vue'
 import component from './src/Main.vue'
-import useWorkflow from './src/useWorkflow.js'
-import useWorkflowVariable from './src/useWorkflowVariable.js'
-import useWorkflowMethod from './src/useWorkflowMethod.js'
-import constants from './src/constants'
 
 export default {
   id: 'workflow',
   title: '工作流',
-  icon: Icon,
+  icon: ComfyuiIcon,
   align: 'top',
   component,
-  useWorkflow,
-  useWorkflowVariable,
-  useWorkflowMethod,
-  constants
 }

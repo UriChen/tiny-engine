@@ -127,13 +127,10 @@
 <script lang="jsx">
 import { computed, ref, watchEffect, onMounted, onActivated } from 'vue'
 import { Grid, GridColumn, Input, Button, FileUpload, Tooltip, Select, Modal as TinyModal } from '@opentiny/vue'
-import { PluginPanel, LinkButton, CloseIcon } from '@opentiny/tiny-engine-common'
-import { useModal } from '@opentiny/tiny-engine-controller'
+import { PluginPanel, LinkButton, CloseIcon, ComfyuiIcon } from '@opentiny/tiny-engine-common'
+import { useModal, useWorkflow } from '@opentiny/tiny-engine-controller'
 import { utils } from '@opentiny/tiny-engine-utils'
 import { BASE_URL } from '@opentiny/tiny-engine-controller/js/environments'
-
-import Icon from './Icon.vue'
-import useWorkflow from './useWorkflow'
 
 import ComfyuiWorkflowEditor from './components/ComfyuiWorkflowEditor/index.vue'
 
@@ -153,7 +150,7 @@ export default {
     CloseIcon,
     ComfyuiWorkflowEditor,
     TinyModal,
-    ComfyuiIcon: Icon
+    ComfyuiIcon
   },
   setup() {
     const { workflowState, getWorkflows, findWorkflows, createWorkflow, deleteWorkflow, updateWorkflow } = useWorkflow()

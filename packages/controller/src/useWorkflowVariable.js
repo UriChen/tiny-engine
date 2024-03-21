@@ -1,7 +1,5 @@
 import { reactive } from 'vue'
-import constants from './constants'
-
-const { WORKFLOW_STATE_KEY } = constants
+import { WORKFLOW_STATE_KEY } from '../js/constants'
 
 const category = [
   {

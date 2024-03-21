@@ -163,6 +163,7 @@ const devAlias = {
   '@opentiny/tiny-engine-plugin-bridge': path.resolve(__dirname, '../plugins/bridge/index.js'),
   '@opentiny/tiny-engine-plugin-tutorial': path.resolve(__dirname, '../plugins/tutorial/index.js'),
   '@opentiny/tiny-engine-plugin-robot': path.resolve(__dirname, '../plugins/robot/index.js'),
+  '@opentiny/tiny-engine-plugin-workflow': path.resolve(__dirname, '../plugins/workflow/index.js'),
   '@opentiny/tiny-engine-setting-events': path.resolve(__dirname, '../settings/events/index.js'),
   '@opentiny/tiny-engine-setting-props': path.resolve(__dirname, '../settings/props/index.js'),
   '@opentiny/tiny-engine-setting-styles': path.resolve(__dirname, '../settings/styles/index.js'),
@@ -191,7 +192,6 @@ const devAlias = {
   '@opentiny/tiny-engine-utils': path.resolve(__dirname, '../utils/src/index.js'),
   '@opentiny/tiny-engine-webcomponent-core': path.resolve(__dirname, '../webcomponent/src/lib.js'),
   '@opentiny/tiny-engine-i18n-host': path.resolve(__dirname, '../i18n/src/lib.js'),
-  '@opentiny/tiny-engine-plugin-workflow': path.resolve(__dirname, '../plugins/workflow/index.js'),
   '@opentiny/tiny-engine-builtin-component': path.resolve(__dirname, '../builtinComponent/index.js')
 }
 

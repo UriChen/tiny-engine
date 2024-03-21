@@ -153,7 +153,7 @@
 
 <script>
 import { reactive, ref, watchEffect, nextTick } from 'vue'
-import { VueMonaco } from '@opentiny/tiny-engine-common'
+import { VueMonaco, ComfyuiIcon } from '@opentiny/tiny-engine-common'
 import {
   Button,
   DialogBox,
@@ -164,13 +164,12 @@ import {
   Tabs as TinyTabs,
   TabItem as TinyTabItem
 } from '@opentiny/vue'
-import { useCanvas, useHistory, useLayout } from '@opentiny/tiny-engine-controller'
+import { WORKFLOW_STATE_KEY } from '@opentiny/tiny-engine-controller/js/constants'
+import { useCanvas, useHistory, useLayout, useWorkflow, useWorkflowMethod } from '@opentiny/tiny-engine-controller'
 import { theme } from '@opentiny/tiny-engine-controller/adapter'
 import { string2Ast, ast2String } from '@opentiny/tiny-engine-controller/js/ast'
 import { iconYes, iconHelpQuery } from '@opentiny/vue-icon'
 
-import WorkflowPlugin from '@opentiny/tiny-engine-plugin-workflow'
-const { WORKFLOW_STATE_KEY } = WorkflowPlugin.constants
 
 const dialogVisible = ref(false)
 
@@ -203,7 +202,7 @@ export default {
     TinyDialogBox: DialogBox,
     TinyTabs,
     TinyTabItem,
-    ComfyuiIcon: WorkflowPlugin.icon,
+    ComfyuiIcon,
     IconYes: iconYes(),
     IconHelpQuery: iconHelpQuery(),
     TinySwitch: Switch
@@ -216,14 +215,15 @@ export default {
     }
   },
   setup(props) {
-    const { workflowState, findWorkflows } = WorkflowPlugin.useWorkflow()
-    const { workflowMethodState, setWorkflow, setWorkflowMethod, resetWorkflowMethodState } =
-      WorkflowPlugin.useWorkflowMethod()
+    
     const bindType = ref('normal')
     const { PLUGIN_NAME, getPluginApi, activePlugin } = useLayout()
     const { pageState } = useCanvas()
     const { getMethodNameList, getMethods, saveMethod, highlightMethod } = getPluginApi(PLUGIN_NAME.PageController)
 
+    const { workflowState, findWorkflows } = useWorkflow
+    const { workflowMethodState, setWorkflow, setWorkflowMethod, resetWorkflowMethodState } =
+      useWorkflowMethod
     const editor = ref(null)
 
     const state = reactive({

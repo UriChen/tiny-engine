@@ -1,6 +1,6 @@
 {
-  "name": "@opentiny/tiny-engine-plugin-i18n",
-  "version": "1.0.3",
+  "name": "@opentiny/tiny-engine-plugin-workflow",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -15,7 +15,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/opentiny/tiny-engine",
-    "directory": "packages/plugins/i18n"
+    "directory": "packages/plugins/workflow"
   },
   "bugs": {
     "url": "https://github.com/opentiny/tiny-engine/issues"
