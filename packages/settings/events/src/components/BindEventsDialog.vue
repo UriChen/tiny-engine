@@ -3,6 +3,7 @@
     v-show="dialogVisible"
     title="事件绑定"
     width="1000"
+    :style="{ zIndex: 1 }"
     :append-to-body="true"
     @close="closeDialog"
     @opened="openedDialog"

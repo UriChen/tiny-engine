@@ -10,7 +10,7 @@
       :tooltip-config="{ appendToBody: false, placement: 'right' }"
       @cell-click="focusNode"
     >
-      <tiny-grid-column field="name" title="名称" show-overflow :show-icon="false">
+      <tiny-grid-column field="name" title="參數名称" show-overflow :show-icon="false">
         <template #default="data">
           <div class="cell-name">
             <div class="color-block" :style="{ background: data.row.color }"></div>

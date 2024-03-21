@@ -369,6 +369,7 @@ export default {
 .workflow {
   width: 500px;
   height: 100%;
+  border-right: 1px solid var(--ti-lowcode-plugin-panel-border-right-color);
 }
 .stripe-tiny-grid {
   word-wrap: break-word;
